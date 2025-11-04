@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Abella's Travel Guide</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+</head>
+<body>
+
+  <!-- Navigation (ONLY Sign Up + Login) -->
+  <nav>
+    <div class="auth-buttons">
+      <a href="{{ url_for('signup') }}" class="auth-button">Sign Up</a>
+      <a href="{{ url_for('login') }}" class="auth-button">Login</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="form-section">
+      <h1>Login</h1>
+
+      <!-- Flash message display -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class="flash-messages">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <!-- Simplified login form -->
+      <form action="{{ url_for('login') }}" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+    <address>
+      Abella's Travel Guide<br>
+      123 Wanderlust Avenue<br>
+      San Francisco, CA 94107<br>
+      <a href="mailto:contact@abellastravelguide.com">contact@abellastravelguide.com</a>
+    </address>
+  </footer>
+</body>
+</html>

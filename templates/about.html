@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abella's Travel Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <header>
+        <h1>Abella's Travel Guide</h1>
+        <p>Explore the most beautiful destinations!</p>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('destinations') }}">Destinations</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </nav>
+
+    <main>
+        <div id="about" class="info-box">
+            <h2>About Us</h2>
+            <p>We offer the best travel guide experience, bringing you closer to the most amazing local and global destinations. Let us help you plan your next unforgettable trip!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

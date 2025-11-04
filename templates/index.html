@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abella's Travel Guide</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('contact') }}">Contact Us</a>
+    <a href="{{ url_for('destinations') }}">Destinations</a>
+
+    {% if session.logged_in %}
+      <!-- LOGGED IN -->
+      <div class="user-nav">
+        <span class="username-display">Hi, {{ session.username }}!</span>
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+      </div>
+    {% else %}
+      <!-- NOT LOGGED IN -->
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="auth-button">Login</a>
+        <a href="{{ url_for('signup') }}" class="auth-button">Sign Up</a>
+      </div>
+    {% endif %}
+  </nav>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main>
+    <header>
+      <h1>EXPLORE. DREAM. DISCOVER.</h1>
+      <p>
+        This is a world travel blog featuring beautiful destinations, new experiences,
+        and hidden places around the globe.<br>Please tag along!
+      </p>
+
+      <!-- 4 CENTERED CTA BUTTONS – ALWAYS VISIBLE -->
+      <div class="cta-buttons">
+        <a href="{{ url_for('destinations') }}">Destinations</a>
+        <a href="{{ url_for('local') }}">View Localities</a>
+        <a href="{{ url_for('guide') }}">Guide and Tips</a>
+        <a href="{{ url_for('try_page') }}">Donate</a>
+      </div>
+    </header>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="destinations-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naga Tour - Abella's Travel Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .destination-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .destination-box {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        .image-button-container img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .see-location-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #2c6e49;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .see-location-button:hover { background-color: #3d8a59; }
+        .travel-info { margin-top: 8px; font-size: 0.95rem; color: #444; }
+        footer { text-align: center; padding: 20px; background: #f4f4f4; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('contact') }}">Contact Us</a>
+    <a href="{{ url_for('destinations') }}">Destinations</a>
+    <div class="user-nav">
+        <span>Hi, {{ username }}!</span>
+        <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+    </div>
+</nav>
+
+<header>
+    <h1>Discover Naga City</h1>
+    <p>Experience the beauty, culture, and adventure of Naga!</p>
+    <a href="{{ url_for('destinations') }}" class="back-button">← Back to Destinations</a>
+</header>
+
+<section id="naga-tour">
+    <h2>Featured Naga Destinations</h2>
+    <div class="destination-gallery">
+
+        <!-- Simbahan -->
+        <div class="destination-box">
+            <img src="{{ url_for('static', filename='simbahan.jfif') }}" alt="Simbahan sa Naga">
+            <h3>St. Francis of Assisi Parish Church</h3>
+            <p>A historic church that stands as a symbol of faith and tradition in Naga City.</p>
+            <div class="travel-info">
+                <p>💰 <strong>Fare:</strong> ₱25</p>
+                <p>📍 <strong>Distance:</strong> 3 km from Naga Plaza</p>
+            </div>
+            <a href="https://maps.app.goo.gl/1QpHb3wfWZXdXtpA6" target="_blank" class="see-location-button">See the Location</a>
+        </div>
+
+        <!-- Mt. Naupa -->
+        <div class="destination-box">
+            <img src="{{ url_for('static', filename='Mt. Naupa.jpg') }}" alt="Mt. Naupa">
+            <h3>Mt. Naupa</h3>
+            <p>One of Cebu’s most scenic hiking spots offering panoramic mountain views.</p>
+            <div class="travel-info">
+                <p>💰 <strong>Fare:</strong> ₱40</p>
+                <p>📍 <strong>Distance:</strong> 8 km from Naga Plaza</p>
+            </div>
+            <a href="https://maps.app.goo.gl/bYaTZM9m8ixHy3vi7" target="_blank" class="see-location-button">See the Location</a>
+        </div>
+
+        <!-- Pasilong -->
+        <div class="destination-box">
+            <img src="{{ url_for('static', filename='Pasilong sa Naga.jpg') }}" alt="Pasilong sa Naga">
+            <h3>Pasilong sa Naga</h3>
+            <p>A relaxing park perfect for family bonding and leisure walks.</p>
+            <div class="travel-info">
+                <p>💰 <strong>Fare:</strong> ₱20</p>
+                <p>📍 <strong>Distance:</strong> 2 km from city center</p>
+            </div>
+            <a href="https://maps.app.goo.gl/GgxLZawqoLuPEX1f7" target="_blank" class="see-location-button">See the Location</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+</footer>
+</body>
+</html>

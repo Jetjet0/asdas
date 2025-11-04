@@ -1,0 +1,770 @@
+/* ==================== RESET & BASE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #2c3e2f;
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 50%, #2d5016 100%);
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Nature leaf pattern overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ==================== DESTINATIONS PAGE SPECIFIC ==================== */
+body.destinations-page {
+    background: linear-gradient(135deg, #134e5e 0%, #71b280 50%, #a8e063 100%);
+    background-attachment: fixed;
+}
+
+html.destinations-page {
+    background: linear-gradient(135deg, #134e5e 0%, #71b280 50%, #a8e063 100%);
+}
+
+body.destinations-page main,
+body.destinations-page section {
+    background-color: transparent;
+}
+
+/* ==================== NAVIGATION ==================== */
+nav {
+    width: 100%;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 242, 0.98) 100%);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(45, 94, 22, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-bottom: 3px solid rgba(86, 171, 47, 0.3);
+}
+
+nav a {
+    color: #2d5e16;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, #56ab2f, #a8e063);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #56ab2f;
+    background: rgba(86, 171, 47, 0.1);
+}
+
+nav a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ==================== USER NAVIGATION ==================== */
+.user-nav {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.username-display {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #56ab2f 0%, #78c850 100%);
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(86, 171, 47, 0.3);
+}
+
+.logout-button {
+    color: white;
+    background: linear-gradient(135deg, #8b5a3c 0%, #a67c52 100%);
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 90, 60, 0.3);
+}
+
+.logout-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 90, 60, 0.4);
+}
+
+/* ==================== AUTH BUTTONS ==================== */
+.auth-buttons {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    gap: 10px;
+}
+
+.auth-button {
+    color: white;
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(86, 171, 47, 0.3);
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(86, 171, 47, 0.4);
+}
+
+/* ==================== HEADER ==================== */
+main {
+    flex: 1;
+    padding-top: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    padding: 80px 40px 60px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 251, 242, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    margin: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(45, 94, 22, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #56ab2f, #a8e063, #78c850);
+}
+
+header::after {
+    content: '🌿';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    opacity: 0.15;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2d5e16 0%, #56ab2f 50%, #78c850 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 10px rgba(86, 171, 47, 0.1);
+}
+
+header p {
+    font-size: 1.3rem;
+    color: #4a5f4d;
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ==================== CTA BUTTONS ==================== */
+.cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons a {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(86, 171, 47, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-buttons a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-buttons a:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(86, 171, 47, 0.4);
+}
+
+/* ==================== SECTIONS ==================== */
+section {
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.top-destinations-title,
+.top-picks-title {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #8b5a3c 0%, #d4a574 50%, #f4e4c1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.top-destinations-title::after,
+.top-picks-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, #8b5a3c, #d4a574);
+    border-radius: 2px;
+}
+
+/* ==================== DESTINATION BOXES ==================== */
+.destination-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 242, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 25px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 15px 40px rgba(45, 94, 22, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(86, 171, 47, 0.1);
+}
+
+.destination-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(45, 94, 22, 0.2);
+    border-color: rgba(86, 171, 47, 0.3);
+}
+
+.destination-box h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #2d5e16;
+    font-weight: 700;
+}
+
+.destination-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a5f4d;
+    font-weight: 500;
+}
+
+.destination-box img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(45, 94, 22, 0.2);
+    transition: transform 0.3s ease;
+    border: 3px solid rgba(86, 171, 47, 0.2);
+}
+
+.destination-box img:hover {
+    transform: scale(1.02);
+}
+
+/* ==================== IMAGE BUTTON CONTAINER ==================== */
+.image-button-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image-button-container img {
+    display: block;
+    margin: 0;
+}
+
+.see-location-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #228b22 0%, #90ee90 100%);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(34, 139, 34, 0.3);
+}
+
+.see-location-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(34, 139, 34, 0.4);
+}
+
+.image-button-container .see-location-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+}
+
+/* ==================== TRAVEL INFO ==================== */
+.travel-info {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    border-radius: 15px;
+    display: inline-block;
+    color: white;
+    box-shadow: 0 8px 20px rgba(86, 171, 47, 0.3);
+}
+
+.travel-info p {
+    font-size: 1rem;
+    color: white;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+/* ==================== INFO BOX ==================== */
+.info-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 242, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    margin: 40px auto;
+    padding: 40px;
+    max-width: 800px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(45, 94, 22, 0.15);
+    border: 2px solid rgba(86, 171, 47, 0.1);
+}
+
+.info-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #2d5e16;
+    font-weight: 700;
+}
+
+.info-box p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #4a5f4d;
+}
+
+.info-box ol {
+    text-align: left;
+    max-width: 600px;
+    margin: 30px auto;
+    color: #2d5e16;
+}
+
+.info-box ol li {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
+
+.info-box ol li strong {
+    color: #56ab2f;
+}
+
+/* ==================== DONATION BOXES ==================== */
+#donations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.donation-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 242, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(45, 94, 22, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(86, 171, 47, 0.1);
+}
+
+.donation-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(45, 94, 22, 0.2);
+    border-color: rgba(86, 171, 47, 0.3);
+}
+
+.donation-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2d5e16;
+    font-weight: 700;
+}
+
+.donation-box p {
+    margin: 10px 0;
+    font-size: 1.05rem;
+    color: #4a5f4d;
+}
+
+.donation-box p strong {
+    color: #56ab2f;
+}
+
+/* ==================== DESTINATION GALLERY ==================== */
+.destination-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==================== BACK BUTTON ==================== */
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateX(-5px);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: linear-gradient(135deg, #1a3a1a 0%, #2d5e16 100%);
+    padding: 30px;
+    text-align: center;
+    color: #e8f5e9;
+    font-size: 1rem;
+    margin-top: auto;
+    box-shadow: 0 -4px 20px rgba(45, 94, 22, 0.2);
+    border-top: 3px solid rgba(86, 171, 47, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 15px;
+    line-height: 1.8;
+    color: rgba(232, 245, 233, 0.9);
+}
+
+footer a {
+    color: #a8e063;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #78c850;
+}
+
+/* ==================== FORM SECTION ==================== */
+.form-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 251, 242, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 25px;
+    max-width: 500px;
+    margin: 100px auto 60px;
+    box-shadow: 0 20px 60px rgba(45, 94, 22, 0.2);
+    border: 2px solid rgba(86, 171, 47, 0.2);
+}
+
+.form-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 35px;
+    background: linear-gradient(135deg, #2d5e16 0%, #56ab2f 50%, #a8e063 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section label {
+    font-size: 1rem;
+    color: #2d5e16;
+    text-align: left;
+    font-weight: 600;
+}
+
+.form-section input {
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #c8e6c9;
+    border-radius: 12px;
+    background-color: white;
+    color: #2d5e16;
+    transition: all 0.3s ease;
+}
+
+.form-section input:focus {
+    outline: none;
+    border-color: #56ab2f;
+    box-shadow: 0 0 0 3px rgba(86, 171, 47, 0.1);
+}
+
+.form-section button {
+    padding: 15px;
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(86, 171, 47, 0.3);
+}
+
+.form-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(86, 171, 47, 0.4);
+}
+
+.form-section p {
+    margin-top: 20px;
+    color: #4a5f4d;
+}
+
+.form-section p a {
+    color: #56ab2f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-section p a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== FLASH MESSAGES ==================== */
+.flash-messages {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.flash-messages li {
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.flash-messages .error {
+    background: linear-gradient(135deg, #c62828 0%, #e57373 100%);
+    color: white;
+}
+
+.flash-messages .success {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    color: white;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    header h1 {
+        font-size: 3rem;
+    }
+
+    .destination-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .user-nav,
+    .auth-buttons {
+        position: relative;
+        right: auto;
+        margin-top: 10px;
+    }
+
+    header {
+        margin: 20px;
+        padding: 60px 30px 40px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .top-destinations-title,
+    .top-picks-title {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+
+    .form-section {
+        padding: 35px;
+        margin: 80px 20px 40px;
+    }
+
+    .destination-gallery {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    #donations {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .top-destinations-title,
+    .top-picks-title {
+        font-size: 1.8rem;
+    }
+
+    .destination-box h3 {
+        font-size: 1.8rem;
+    }
+
+    .form-section {
+        padding: 25px;
+    }
+
+    .form-section h1 {
+        font-size: 2rem;
+    }
+}

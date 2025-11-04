@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="destinations-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abella's Travel Guide - Destinations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="destinations-page">
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+        <a href="{{ url_for('destinations') }}">Destinations</a>
+
+        {% if session.get('logged_in') %}
+            <div class="user-nav">
+                <span class="username-display">Hi, {{ session.get('username') }}!</span>
+                <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+            </div>
+        {% else %}
+            <div class="auth-buttons">
+                <a href="{{ url_for('login') }}" class="auth-button">Login</a>
+                <a href="{{ url_for('signup') }}" class="auth-button">Sign Up</a>
+            </div>
+        {% endif %}
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+
+        <p>Explore the most beautiful destinations!</p>
+    </header>
+
+    <!-- Destinations Section -->
+    <section id="destinations">
+        <h2 class="top-destinations-title">Our Top Destinations</h2>
+
+        <!-- 1. NAGA -->
+        <div class="destination-box">
+            <h3>Naga</h3>
+            <div class="image-button-container">
+                <a href="{{ url_for('nagatour') }}">
+                    <img src="{{ url_for('static', filename='naga.jpg') }}" alt="Naga">
+                </a>
+                <a href="https://www.google.com/maps/place/Naga,+Cebu/" target="_blank" class="see-location-button">
+                    See the Location
+                </a>
+            </div>
+        </div>
+
+        <!-- 2. INAYAGAN -->
+        <div class="destination-box">
+            <h3>Inayagan</h3>
+            <div class="image-button-container">
+                <a href="{{ url_for('inayagantour') }}">
+                    <img src="{{ url_for('static', filename='inayagan.jpg') }}" alt="Inayagan">
+                </a>
+                <a href="https://www.google.com/maps/place/Inayagan,+Naga,+Cebu/" target="_blank" class="see-location-button">
+                    See the Location
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. MINGLANILLA -->
+        <div class="destination-box">
+            <h3>Minglanilla</h3>
+            <div class="image-button-container">
+                <a href="{{ url_for('mingtour') }}">
+                    <img src="{{ url_for('static', filename='minglanilla.jpg') }}" alt="Minglanilla">
+                </a>
+                <a href="https://www.google.com/maps/place/Minglanilla,+Cebu/" target="_blank" class="see-location-button">
+                    See the Location
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+S

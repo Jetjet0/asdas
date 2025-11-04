@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abella's Travel Guide - Guide and Tips</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <!-- Navigation (WITHOUT Destinations) -->
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+
+        {% if session.loggedin %}
+            <!-- LOGGED IN: Show ONLY Username + Logout -->
+            <div class="user-nav">
+                <span class="username-display">Hi, {{ session.username }}!</span>
+                <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+            </div>
+        {% else %}
+            <!-- NOT LOGGED IN: Show Login/Signup -->
+            <div class="auth-buttons">
+                <a href="{{ url_for('login') }}" class="auth-button">Login</a>
+                <a href="{{ url_for('signup') }}" class="auth-button">Sign Up</a>
+            </div>
+        {% endif %}
+    </nav>
+
+    <header>
+        <h1>Abella's Travel Guide</h1>
+        <p>Guide and Tips for Your Next Adventure!</p>
+    </header>
+
+    <main>
+        <div class="info-box">
+            <h2 class="top-picks-title">Guide and Tips for tourist</h2>
+            <ol>
+                <li><strong>Pack only what you need.</strong><br>Don't bring too much stuff.</li>
+                <li><strong>Learn a few local words.</strong><br>Saying "hello" and "thank you" is helpful.</li>
+                <li><strong>Be ready for changes.</strong><br>Sometimes plans don't go as expected.</li>
+                <li><strong>Keep your things safe.</strong><br>Make copies of your passport and hide money.</li>
+                <li><strong>Bring snacks and water.</strong><br>You might get hungry or thirsty while traveling.</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

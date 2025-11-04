@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abella's Travel Guide - Contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <header>
+        <h1>Abella's Travel Guide</h1>
+        <p>Explore the most beautiful destinations!</p>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('destinations') }}">Destinations</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </nav>
+
+    <main>
+        <div id="contact" class="info-box">
+            <h2>Contact Us</h2>
+            <p><strong>Facebook:</strong> Jet Erron Abella</p>
+            <p><strong>Gmail:</strong> Jeterronabella987@gmail.com</p>
+            <p><strong>Contact number:</strong> 09123456789</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

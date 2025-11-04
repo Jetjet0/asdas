@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abella's Travel Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+    <!-- Navigation always on top -->
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('destinations') }}">Destinations</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+    </nav>
+
+    <!-- Main content area -->
+    <main>
+        <header>
+            <h1>Abella's Travel Guide</h1>
+            <p>Explore the most beautiful destinations!</p>
+        </header>
+
+        <section id="destinations">
+            <h2 class="top-picks-title">Our Top Picks</h2>
+
+            <div class="destination-box">
+                <h3>Chicharon</h3>
+                <img src="{{ url_for('static', filename='chicharon.JPG') }}" alt="Chicharon" />
+                <p>Crunchy and delicious pork snack, perfect for every trip!</p>
+            </div>
+
+            <div class="destination-box">
+                <h3>Tuba</h3>
+                <img src="{{ url_for('static', filename='tuba.JPG') }}" alt="Tuba" />
+                <p>A sweet and strong coconut wine enjoyed by locals.</p>
+            </div>
+
+            <div class="destination-box">
+                <h3>Budbud</h3>
+                <img src="{{ url_for('static', filename='budbud.JPG') }}" alt="Budbud" />
+                <p>Soft sticky rice wrapped in banana leaves, a tasty local treat!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer always at the bottom -->
+    <footer>
+        <p>&copy; 2025 Abella's Travel Guide. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
