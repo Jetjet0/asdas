@@ -39,6 +39,18 @@
         }
         .see-location-button:hover { background-color: #3d8a59; }
         .travel-info { margin-top: 8px; font-size: 0.95rem; color: #444; }
+        .no-address-notice {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+        .no-address-notice a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
         footer { text-align: center; padding: 20px; background: #f4f4f4; margin-top: 40px; }
     </style>
 </head>
@@ -70,10 +82,16 @@
             <img src="{{ url_for('static', filename='inayagan.PNG') }}" alt="Inayagan Barangay">
             <h3>Inayagan Barangay Center</h3>
             <p>A welcoming community hub where locals gather for events.</p>
+            {% if user_address %}
             <div class="travel-info">
                 <p>💰 <strong>Fare:</strong> ₱18</p>
                 <p>📍 <strong>Distance:</strong> 3 km from Minglanilla Plaza</p>
             </div>
+            {% else %}
+            <div class="no-address-notice">
+                <p>Add your address in <a href="{{ url_for('update_profile') }}">profile settings</a> to see travel info</p>
+            </div>
+            {% endif %}
             <a href="https://maps.app.goo.gl/kjcnjsDKd1R5C7hA9" target="_blank" class="see-location-button">See the Location</a>
         </div>
 
@@ -82,10 +100,16 @@
             <img src="{{ url_for('static', filename='pangilatan.jpg') }}" alt="Pangilatan Peak">
             <h3>Pangilatan Peak</h3>
             <p>A serene hiking spot with panoramic mountain views and cool breezes.</p>
+            {% if user_address %}
             <div class="travel-info">
                 <p>💰 <strong>Fare:</strong> ₱35</p>
                 <p>📍 <strong>Distance:</strong> 7 km from Inayagan Barangay Center</p>
             </div>
+            {% else %}
+            <div class="no-address-notice">
+                <p>Add your address in <a href="{{ url_for('update_profile') }}">profile settings</a> to see travel info</p>
+            </div>
+            {% endif %}
             <a href="https://maps.app.goo.gl/5hK3JbKnLqHeDAxN8" target="_blank" class="see-location-button">See the Location</a>
         </div>
 

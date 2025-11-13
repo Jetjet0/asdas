@@ -19,6 +19,7 @@
       <!-- LOGGED IN -->
       <div class="user-nav">
         <span class="username-display">Hi, {{ session.username }}!</span>
+        <a href="{{ url_for('update_profile') }}" class="update-button">Update</a>
         <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
       </div>
     {% else %}

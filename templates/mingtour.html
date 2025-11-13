@@ -54,6 +54,20 @@
             color: #444;
         }
 
+        .no-address-notice {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        .no-address-notice a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
         header h1 {
             font-size: 2.2rem;
             margin-bottom: 0.3rem;
@@ -96,7 +110,7 @@
 
     <header>
         <h1>Discover Minglanilla</h1>
-        <p>The “Sugbo’s Little Tuscany” of Southern Cebu!</p>
+        <p>The "Sugbo's Little Tuscany" of Southern Cebu!</p>
         <a href="{{ url_for('destinations') }}" class="back-button">← Back to Destinations</a>
     </header>
 
@@ -109,10 +123,16 @@
                 <img src="{{ url_for('static', filename='simbahan sa minglanilla.jpg') }}" alt="Simbahan sa Minglanilla">
                 <h3>Mary Help of Christians Parish</h3>
                 <p>A historical and spiritual landmark in the heart of Minglanilla.</p>
+                {% if user_address %}
                 <div class="travel-info">
                     <p>💰 <strong>Fare:</strong> ₱20</p>
                     <p>📍 <strong>Distance:</strong> 2.5 km from town proper</p>
                 </div>
+                {% else %}
+                <div class="no-address-notice">
+                    <p>Add your address in <a href="{{ url_for('update_profile') }}">profile settings</a> to see travel info</p>
+                </div>
+                {% endif %}
                 <a href="https://maps.app.goo.gl/W1cdd43b7vZrjLoY6" target="_blank" class="see-location-button">See the Location</a>
             </div>
 
@@ -121,22 +141,34 @@
                 <img src="{{ url_for('static', filename='palm beach.jpg') }}" alt="Palm Beach Minglanilla">
                 <h3>Palm Beach Resort</h3>
                 <p>A peaceful beach getaway to relax and enjoy the sea breeze.</p>
+                {% if user_address %}
                 <div class="travel-info">
                     <p>💰 <strong>Fare:</strong> ₱35</p>
                     <p>📍 <strong>Distance:</strong> 6 km from town proper</p>
                 </div>
+                {% else %}
+                <div class="no-address-notice">
+                    <p>Add your address in <a href="{{ url_for('update_profile') }}">profile settings</a> to see travel info</p>
+                </div>
+                {% endif %}
                 <a href="https://maps.app.goo.gl/qmSXmPb8hRVDQ7kq6" target="_blank" class="see-location-button">See the Location</a>
             </div>
 
             <!-- SCC -->
             <div class="destination-box">
-                <img src="{{ url_for('static', filename='scc.jpg') }}" alt="Saint Cecilia’s College">
-                <h3>Saint Cecilia’s College</h3>
+                <img src="{{ url_for('static', filename='scc.jpg') }}" alt="Saint Cecilia's College">
+                <h3>Saint Cecilia's College</h3>
                 <p>A prestigious institution known for academic excellence.</p>
+                {% if user_address %}
                 <div class="travel-info">
                     <p>💰 <strong>Fare:</strong> ₱15</p>
                     <p>📍 <strong>Distance:</strong> 1 km from Minglanilla Plaza</p>
                 </div>
+                {% else %}
+                <div class="no-address-notice">
+                    <p>Add your address in <a href="{{ url_for('update_profile') }}">profile settings</a> to see travel info</p>
+                </div>
+                {% endif %}
                 <a href="https://maps.app.goo.gl/aAWtjsEQcNdc7QEN6" target="_blank" class="see-location-button">See the Location</a>
             </div>
 
@@ -148,4 +180,3 @@
     </footer>
 </body>
 </html>
-S
